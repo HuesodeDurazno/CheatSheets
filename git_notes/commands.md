@@ -61,5 +61,12 @@
     git diff --> cambios que no estan en el stage
             --staged --> cambios que estan en el stage
 
+## cambiar nombre comit anterior 
+    git commit --amend -m "[message]"
+
+## deshacer commit
+    git commit --soft HEAD^
+                        [hash de commit]
+                        ^[numero] n commits atras
 
 
