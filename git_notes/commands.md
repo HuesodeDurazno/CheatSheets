@@ -64,9 +64,20 @@
 ## cambiar nombre comit anterior 
     git commit --amend -m "[message]"
 
-## deshacer commit
-    git commit --soft HEAD^
+## deshacer commit no destructivo
+    git reset --soft HEAD^
                         [hash de commit]
                         ^[numero] n commits atras
 
+## deshacer un commit no detructivo
+    git reset --mixed [lo mismo que soft]
+    
+    olvida los commits  y el trackeo pero no elimina archivos
 
+## deshacer un commit , destructivo
+    git reset --hard [lo mismo que anteriores]
+
+## ver referencia de cambios futuros y pasados
+    git reflog 
+     
+    despues volver a moverte a git futuro con git reset --hard
