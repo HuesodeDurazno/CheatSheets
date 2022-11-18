@@ -91,4 +91,17 @@
 ## deshacer al ultimo commit x2
     git reset --hard
 
+## crear una rama 
+    git branch [name]
+
+## cambiar de rama
+    git checkout [name]
+
+## hacer merge
+    estar en la rama a la que queremos agregar cambios
+    git merge [branch_name]
+
+## eliminar rama 
+    git branch -d rama-villanos
+                                -f eliminar de manera forzada
 
