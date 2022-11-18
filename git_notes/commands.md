@@ -46,3 +46,20 @@
 
 ## mantener carpetas vacias
     .gitkeep
+
+## agregar alias 
+    git config --global alias.[alias] [command]
+
+    alias recomendados:
+        s "status --short"
+
+        lg "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+
+        s status -sb
+
+## ver cambios que se hicieron desde el ultimo commit
+    git diff --> cambios que no estan en el stage
+            --staged --> cambios que estan en el stage
+
+
+
