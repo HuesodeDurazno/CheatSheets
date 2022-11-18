@@ -81,3 +81,14 @@
     git reflog 
      
     despues volver a moverte a git futuro con git reset --hard
+
+## renombrar archivo 
+    git mv [file] [new name]
+
+## eliminar con git
+    git rm [file]
+
+## deshacer al ultimo commit x2
+    git reset --hard
+
+
