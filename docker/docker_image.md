@@ -34,3 +34,4 @@
 
 ### Nota: Al crear un docker es solo lecura, si se requiere hacer un cambio se tiene que volver a builder una imagen , Cada que agregamos un comando o caracteristica al contenedor , este se vuelve un layer , si se hace un cambio en algun layer , se rebuildean solo los layers posterior al que sufrio un cambio
 
+## Nota los argumentos para build ARG  solo son aplicables en dockerfile

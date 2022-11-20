@@ -22,7 +22,7 @@ crea un layer en la imagen y empieza el contenedor
         --name [name] agregar nombre al contenedor
 
         -v 
-            [path ext/name]:[path int] agregar un bind mount
+            [path ext/name]:[path int] agregar un bind mount 
             
             [path] volumen anonimo
             
@@ -83,8 +83,8 @@ crea un layer en la imagen y empieza el contenedor
 ## subimos docker a docker hub
     docker push [path]
 
-## agregar taf a imagen 
-    docker tag [id/name]:[tag] [old img]
+## renombrar un docker con tag, se quedan las dos imagenes
+    docker tag [id/name]:[tag] [new name]
 
 ## Iniciar sesion en docker hub
     docker login
@@ -106,3 +106,5 @@ crea un layer en la imagen y empieza el contenedor
 
 ## detalles de un volumen
     docker volume inspect [name/id]
+
+
