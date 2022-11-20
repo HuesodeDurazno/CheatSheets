@@ -36,6 +36,7 @@ crea un layer en la imagen y empieza el contenedor
         
         --build-arg [var name] = [value]
 
+        --network [name]
 
 ## buildear una imagen desde dockerfile
     docker build [path]
@@ -107,4 +108,7 @@ crea un layer en la imagen y empieza el contenedor
 ## detalles de un volumen
     docker volume inspect [name/id]
 
+## crear una network
+    docker network [name] 
+                    ls lista las redes
 

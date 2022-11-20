@@ -6,5 +6,6 @@
 2. docker container inspect [name]
 3. ipAdress
 
-
+## hacer referencia a otro contenedor en la misma red
+    [nombreContenedor]:[port]
 
