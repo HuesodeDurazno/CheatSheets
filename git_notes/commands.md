@@ -102,6 +102,60 @@
     git merge [branch_name]
 
 ## eliminar rama 
-    git branch -d rama-villanos
+    git branch -d [nombre de la rama]
                                 -f eliminar de manera forzada
+
+## crear y cambiar
+    git chekout -b [branch name]
+
+## crear tag
+    git tag [name]
+
+## crear tag con version semantica
+    git tag -a v1.0.0 -m "[message]"
+        1 cambios mayores
+        0 agregando funcionalidad
+        0 bug fix
+
+## tagear commits anteriores
+    git tag -a [version] [hash commit] -m "[message]"
+
+## ver tags
+    git tag
+
+## ver detalle de tag
+    git show [version]
+
+## crear stash
+ultimos cambios antes del ultimo commit
+
+    git stash
+
+## ver referencias al stash
+    git stash list
+
+## recuperar los cambios del ultimo stash
+    git stash pop
+
+## conflicto en el stash
+    resolver conflicto y commit
+
+## aplicar un stash en especifico
+    git stash apply [stash]
+
+## borrar stash
+    git stash drop [stash]
+                    sin parametros es el ultimo
+
+## ver stash pero no aplicar 
+    git stash show [stash]
+
+## guardar stash con nombre
+    git stash save "[name]"
+
+## ver mas detalle de los stash
+    git stash list --stat
+
+## borrar stashes
+    git stash clear
 
