@@ -159,3 +159,17 @@ ultimos cambios antes del ultimo commit
 ## borrar stashes
     git stash clear
 
+## rebase
+    en la rama donde queremos hacer el rebase
+
+    git rebase master
+
+    pasa la rama al ultimo commit de master 
+
+## juntar commits
+    git rebase -i HEAD~4 o hash
+        abrirar un menu interactivo para hacer varias acciones 
+
+
+## retornar solo un archivo a el ultimo commit
+    git checkout -- [path]
