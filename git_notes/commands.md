@@ -173,3 +173,18 @@ ultimos cambios antes del ultimo commit
 
 ## retornar solo un archivo a el ultimo commit
     git checkout -- [path]
+
+# pushear tags
+    git push --tags
+
+# obtener datos desde github
+    git pull 
+
+# ver en que ruta remota esta su repositorio
+    git remote -v
+
+# ver repositorios remotos
+    git remote 
+
+# actualizar las referencias locales
+    git fetch
