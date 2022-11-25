@@ -188,3 +188,10 @@ ultimos cambios antes del ultimo commit
 
 # actualizar las referencias locales
     git fetch
+
+# actualizar fork desde consola
+    agregamos repo remoto original
+        git remote add upstream [url]
+    
+    git pull upstream
+
