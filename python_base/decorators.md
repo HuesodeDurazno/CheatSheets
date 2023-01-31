@@ -205,3 +205,149 @@ funcionan exactamente igual , la unica diferencia es que como argumento se pasa 
 
 ## decoradores anidados
 
+podemos agregar varios decoradores apilados
+
+```python
+
+    from decorators import debug, do_twice
+
+    @debug
+    @do_twice
+    def greet(name):
+        print(f"Hello {name}")
+
+```
+
+Estos decoradores son ejecutados en el orden que son llamados. debug(do_twice(greet())).
+
+## Se pueden declarar decoradores con argumentos
+
+```python
+    @repeat(num_times=4)
+    def greet(name):
+        print(f"Hello {name}")
+
+
+    def repeat(num_times):
+        def decorator_repeat(func):
+            ...  # Create and return a wrapper function
+        return decorator_repeat
+```
+
+## decoradores para trackear estado
+
+decorador que indica cuantas veces fue llamada la funcion, El numero de veces que se llamo a la funcion queda almacenado en el atributo ```num_calls```
+
+```python
+    import functools
+
+    def count_calls(func):
+        @functools.wraps(func)
+        def wrapper_count_calls(*args, **kwargs):
+            wrapper_count_calls.num_calls += 1
+            print(f"Call {wrapper_count_calls.num_calls} of {func.__name__!r}")
+            return func(*args, **kwargs)
+        wrapper_count_calls.num_calls = 0
+        return wrapper_count_calls
+
+    @count_calls
+    def say_whee():
+        print("Whee!")
+    
+    say_whee.num_calls
+```
+
+## clases como decoradores
+
+podemos ocupar una clase como un decorador si sobree escribimos el metodo ```__call__```
+
+```python
+    import functools
+
+    class CountCalls:
+        def __init__(self, func):
+            functools.update_wrapper(self, func)
+            self.func = func
+            self.num_calls = 0
+
+        def __call__(self, *args, **kwargs):
+            self.num_calls += 1
+            print(f"Call {self.num_calls} of {self.func.__name__!r}")
+            return self.func(*args, **kwargs)
+
+    @CountCalls
+    def say_whee():
+        print("Whee!")
+```
+
+## ejemplos de la vida real parte dos
+
+## crear un singleton
+
+```python
+    import functools
+
+    def singleton(cls):
+        """Make a class a Singleton class (only one instance)"""
+        @functools.wraps(cls)
+        def wrapper_singleton(*args, **kwargs):
+            if not wrapper_singleton.instance:
+                wrapper_singleton.instance = cls(*args, **kwargs)
+            return wrapper_singleton.instance
+        wrapper_singleton.instance = None
+        return wrapper_singleton
+
+    @singleton
+    class TheOne:
+        pass
+```
+## caching return values
+
+```python
+    import functools
+    from decorators import count_calls
+
+    def cache(func):
+        """Keep a cache of previous function calls"""
+        @functools.wraps(func)
+        def wrapper_cache(*args, **kwargs):
+            cache_key = args + tuple(kwargs.items())
+            if cache_key not in wrapper_cache.cache:
+                wrapper_cache.cache[cache_key] = func(*args, **kwargs)
+            return wrapper_cache.cache[cache_key]
+        wrapper_cache.cache = dict()
+        return wrapper_cache
+
+    @cache
+    @count_calls
+    def fibonacci(num):
+        if num < 2:
+            return num
+        return fibonacci(num - 1) + fibonacci(num - 2)
+```
+
+## agregar informacion sobre unidades
+
+```python
+    def set_unit(unit):
+        """Register a unit on a function"""
+        def decorator_set_unit(func):
+            func.unit = unit
+            return func
+        return decorator_set_unit
+    
+    import math
+
+    @set_unit("cm^3")
+    def volume(radius, height):
+        return math.pi * radius**2 * height
+
+
+    >>> volume(3, 5)
+    141.3716694115407
+
+    >>> volume.unit
+    'cm^3'
+```
+
+
