@@ -57,7 +57,7 @@ crea un layer en la imagen y empieza el contenedor
 
 ## ver los logs de una imagen
     docker logs
-        -f seguir los logs
+        -f seguir los logs [id]
 
 ## Eliminar contenedores
     docker rm [id/name]
