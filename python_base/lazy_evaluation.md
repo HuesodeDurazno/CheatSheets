@@ -16,7 +16,6 @@ Por ejemplo la funcion range independientemente de el tamaño de range siempre t
     48
     >>> sys.getsizeof(range(500))
     48
-
 ```
 
 Iterator is an object whose class has a ```__next__``` and ```__iter__``` method. Every time you do ```next()``` call to the iterator object, you would get the next item in the sequence until the iterator object is exhausted and raise ```StopIteration```. However, generator is a function that returns an iterator. It looks like a normal function except that it uses ```yield``` instead of ```return```.
@@ -30,6 +29,8 @@ Como en la funcion range ,el valor solo sera calculado hasta que el valor se nec
         for i in items:
             # you can have complex logic here
             yield i ** 2
+    
+    result = (i**2 for i in range(10))
 ```
 
 ## caso de uso - Patron de lazy-evaluated-property
