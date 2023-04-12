@@ -140,4 +140,26 @@ wait_for_file >> process_file
 
 ```
 
+## Que es un hook
 
+En Airflow, un hook es una interfaz de programación de aplicaciones (API) que proporciona una abstracción de bajo nivel para interactuar con servicios externos, como bases de datos, servicios web y sistemas de almacenamiento. Los hooks se utilizan para conectarse y comunicarse con estas fuentes externas de datos desde una tarea en un DAG.
+
+Los hooks son una forma sencilla y eficiente de manejar la complejidad de interactuar con servicios externos. Proporcionan una API unificada y consistente para interactuar con diferentes sistemas externos, independientemente de la implementación y tecnología subyacente de cada uno. Esto hace que el código de las tareas del DAG sea más legible, modular y fácil de mantener.
+
+Los hooks en Airflow son objetos que heredan de la clase BaseHook y se pueden utilizar dentro de las tareas en un DAG. Cada hook proporciona métodos específicos para interactuar con un servicio externo en particular. Por ejemplo, el hook SqlAlchemyHook se utiliza para interactuar con bases de datos relacionales utilizando la biblioteca SQLAlchemy, mientras que el hook HttpHook se utiliza para realizar solicitudes HTTP a servicios web.
+
+## Que es scheduling en airflow
+
+El scheduler de Airflow utiliza el concepto de "intervalo de ejecución" para programar la ejecución de un DAG. El intervalo de ejecución es un período de tiempo que indica cuándo se debe iniciar la ejecución del DAG. El intervalo de ejecución se define en el archivo de configuración de Airflow, y puede ser diario, semanal, mensual, etc.
+
+Cuando se ejecuta el scheduler de Airflow, este revisa el intervalo de ejecución de cada DAG y determina si hay tareas que deben ejecutarse en ese momento. Si es así, el scheduler inicia la ejecución de esas tareas. Las tareas que no están programadas para ejecutarse en ese momento se posponen hasta la próxima ventana de ejecución.
+
+Es importante tener en cuenta que el scheduler de Airflow también tiene en cuenta las dependencias entre tareas al programar su ejecución. Por ejemplo, si una tarea A depende de la finalización de una tarea B, el scheduler esperará a que la tarea B termine antes de iniciar la ejecución de la tarea A.
+
+Campos importantes en el dag :
+
+    start_date 
+    schedule_interval
+    end_date
+
+El dag se empieza a ejecutar en el start_date + schedule interval
