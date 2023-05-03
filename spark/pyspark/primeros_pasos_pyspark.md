@@ -98,3 +98,134 @@ for key, value in new_rdd.collect():
 # Clave: d, Valor: ['dias']
 
 ```
+
+5. reduceByKey(): La transformación reduceByKey() combina los valores de un RDD que tienen la misma clave mediante una función de reducción, como la suma o el promedio. Esta transformación se utiliza con frecuencia en operaciones de agregación. Por ejemplo:
+
+```python
+# Creamos un RDD de pares clave-valor
+rdd = sc.parallelize([(1, 2), (3, 4), (3, 6)])
+
+# Sumamos los valores que tienen la misma clave
+new_rdd = rdd.reduceByKey(lambda x, y: x + y)
+
+# Mostramos los elementos del nuevo RDD
+print(new_rdd.collect())  # Output: [(1, 2), (3, 10)]
+```
+6. sortByKey(): La transformación sortByKey() ordena los elementos de un RDD por la clave. Por defecto, los elementos se ordenan de forma ascendente, pero se puede especificar el parámetro ascending=False para ordenarlos de forma descendente. Por ejemplo:
+
+```python
+# Creamos un RDD de pares clave-valor
+rdd = sc.parallelize([(3, 'a'), (1, 'b'), (2, 'c')])
+
+# Ordenamos los elementos por la clave
+new_rdd = rdd.sortByKey()
+
+# Mostramos los elementos del nuevo RDD
+print(new_rdd.collect())  # Output: [(1, 'b'), (2, 'c'), (3, 'a')]
+
+```
+
+7. groupByKey(): La transformación groupByKey() agrupa los elementos de un RDD por la clave y devuelve un RDD de pares clave-valor, donde la clave es la clave de agrupación y el valor es un iterable con los valores correspondientes a esa clave. Por ejemplo:
+
+```python
+# Creamos un RDD de pares clave-valor
+rdd = sc.parallelize([(1, 2), (3, 4), (3, 6)])
+
+# Agrupamos los valores por la clave
+new_rdd = rdd.groupByKey()
+
+# Mostramos los elementos del nuevo RDD
+for key, value in new_rdd.collect():
+    print(f'Clave: {key}, Valor: {list(value)}')
+# Output:
+# Clave: 1, Valor: [2]
+# Clave: 3, Valor: [4, 6]
+
+```
+
+8. sortBy(): La transformación sortBy() ordena los elementos de un RDD según una función de clasificación. La función toma como entrada un elemento del RDD y devuelve un valor que se utiliza para la clasificación. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([3, 1, 4, 1, 5, 9, 2, 6, 5])
+
+# Ordenamos los elementos por su valor
+new_rdd = rdd.sortBy(lambda x: x)
+
+# Mostramos los elementos del nuevo RDD
+print(new_rdd.collect())  # Output: [1, 1
+
+```
+
+## Acciones basicas
+
+1. collect(): La acción collect() devuelve todos los elementos de un RDD como una lista de Python en el programa de control. Si el RDD es muy grande, esto puede provocar un desbordamiento de memoria. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Devolvemos los elementos del RDD como una lista
+result = rdd.collect()
+
+# Mostramos el resultado
+print(result)  # Output: [1, 2, 3, 4, 5]
+
+```
+
+2. count(): La acción count() devuelve el número de elementos en un RDD. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Contamos el número de elementos
+result = rdd.count()
+
+# Mostramos el resultado
+print(result)  # Output: 5
+
+```
+
+3. take(): La acción take() devuelve los primeros n elementos de un RDD como una lista de Python en el programa de control. Si el RDD es muy grande, esto puede provocar un desbordamiento de memoria. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Devolvemos los dos primeros elementos del RDD como una lista
+result = rdd.take(2)
+
+# Mostramos el resultado
+print(result)  # Output: [1, 2]
+
+```
+
+4. first(): La acción first() devuelve el primer elemento de un RDD. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Devolvemos el primer elemento del RDD
+result = rdd.first()
+
+# Mostramos el resultado
+print(result)  # Output: 1
+
+
+```
+
+5.reduce(): La acción reduce() combina los elementos de un RDD mediante una función de reducción, como la suma o el promedio. La función reduce() toma como entrada una función de dos argumentos que toma dos elementos del RDD y devuelve un nuevo elemento. Por ejemplo:
+
+```python
+# Creamos un RDD de números
+rdd = sc.parallelize([1, 2, 3, 4, 5])
+
+# Sumamos los elementos del RDD
+result = rdd.reduce(lambda x, y: x + y)
+
+# Mostramos el resultado
+print(result)  # Output: 15
+
+```

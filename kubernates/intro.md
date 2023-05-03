@@ -21,3 +21,5 @@ Kubernetes permite a los desarrolladores y a los equipos de operaciones automati
 
 6. Controladores: Los Controladores son los componentes que se utilizan para asegurar que los objetos en Kubernetes estén en el estado deseado. Por ejemplo, el Controlador de Replicación se utiliza para mantener un número determinado de réplicas de una aplicación en ejecución.
 
+
+
