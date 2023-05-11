@@ -23,3 +23,20 @@ Kubernetes permite a los desarrolladores y a los equipos de operaciones automati
 
 
 
+## Objects
+
+En Kubernetes, los objetos son representaciones abstractas de los componentes que forman una aplicación y sus requisitos de recursos. Los objetos de Kubernetes se utilizan para definir el estado deseado de la aplicación, que Kubernetes se encarga de mantener.
+
+Algunos ejemplos de objetos en Kubernetes son los siguientes:
+
+1. Pod: Un Pod es la unidad más pequeña de Kubernetes y representa un contenedor o un grupo de contenedores que se ejecutan juntos en un nodo. Un Pod se utiliza para garantizar que los contenedores se ejecuten en la misma máquina física y compartan recursos.
+
+2. Deployment: Un Deployment se utiliza para definir cómo se debe implementar una aplicación en Kubernetes. Define el número de réplicas que se deben crear y cómo se deben actualizar las réplicas existentes cuando hay un cambio en el estado deseado.
+
+3. Service: Un Service se utiliza para exponer una aplicación en Kubernetes. Permite que los usuarios externos o las aplicaciones se conecten a los Pods que ejecutan la aplicación, incluso si los Pods se mueven a diferentes nodos.
+
+4. ConfigMap: Un ConfigMap se utiliza para almacenar datos de configuración que se utilizan por los contenedores en un Pod.
+
+5. Secret: Un Secret se utiliza para almacenar datos confidenciales como claves de acceso y contraseñas. Los Secret se pueden montar como un volumen en un Pod y los datos se proporcionan como variables de entorno o archivos.
+
+Estos son solo algunos ejemplos de los objetos que se pueden utilizar en Kubernetes. Cada objeto tiene una definición YAML que describe sus propiedades y cómo interactúa con otros objetos en el clúster de Kubernetes.
