@@ -31,4 +31,7 @@ Mostrar mensajes de un topic con key
 
 ![envio](../imgs/ciclo_producer.png)
 
- El batching de registros en Kafka permite al productor enviar varios mensajes en una sola llamada a la API, lo que mejora el rendimiento general del productor. Los parámetros **batch.size** y **linger.ms** se utilizan para configurar el batching y controlar el tamaño y el tiempo de espera máximo de los lotes.
+ El batching de registros en Kafka permite al productor enviar varios mensajes en una sola llamada a la API, lo que mejora el rendimiento general del productor. Los parámetros **batch.size** y **linger.ms** se utilizan para configurar el batching y controlar el tamaño y el tiempo de espera máximo de los lotes.\
+
+Nota: Hace falta profundizar en el ciclo de el producer.
+
