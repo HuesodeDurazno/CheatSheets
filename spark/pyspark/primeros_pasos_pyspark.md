@@ -229,3 +229,9 @@ result = rdd.reduce(lambda x, y: x + y)
 print(result)  # Output: 15
 
 ```
+
+6. Crear un rdd vacio
+
+```python
+rdd= sc.emptyRDD
+```
