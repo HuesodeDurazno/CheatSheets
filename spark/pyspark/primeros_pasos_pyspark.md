@@ -12,7 +12,7 @@ spark = SparkSession.builder\
         .getOrCreate()
 ```
 
-El spark session es el primer paso que debemos de seguir pasra trabajar copn spark.
+El spark session es el primer paso que debemos de seguir pasra trabajar con spark.
 
 Al metodo master le pasamos el modo como se va a ejecutar pyspark , en este caso local el numero dentro de [] indica el numero de particiones en los rdd , dataframes o datasets
 
@@ -203,6 +203,7 @@ print(result)  # Output: [1, 2]
 
 4. first(): La acción first() devuelve el primer elemento de un RDD. Por ejemplo:
 
+
 ```python
 # Creamos un RDD de números
 rdd = sc.parallelize([1, 2, 3, 4, 5])
@@ -233,5 +234,13 @@ print(result)  # Output: 15
 6. Crear un rdd vacio
 
 ```python
-rdd= sc.emptyRDD
+rdd= sc.emptyRDD()
+```
+
+7. Crear un rdd de un archivo de texto
+
+```python
+    rdd = sc.textFile('')
+    
+    rdd = sc.wholeTextFile('')
 ```
